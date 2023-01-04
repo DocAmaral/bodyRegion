@@ -24,7 +24,7 @@ humanBody = {
     'inguinalRegion'["inguinal"],
     'colon': ["colectomy"],
     'genHernia':["hernia"],
-    'sidedThorax:["lung","lob"],
+    'sidedThorax':["lung","lob"],
     #Superficial procedures
     'non-cavity': ["wound","subcut","closure", "biopsy","drain","wall","evacuation","extremity","block","dural","debridement","excision","absc","lipec","spinal","nerve","anesthesia","laminec"],
     #Skeleton image

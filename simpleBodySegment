@@ -1,0 +1,40 @@
+import pandas as pd
+
+humanBody = {
+    'posterior': {
+        'lumbar': ["neph","kidney","renal","uret","litho","adren"],
+        'orificial':["fistulotomy","fistulectomy","anal","hemorr","fissurec","anal","hemorrh"],
+        'spinal': ["spine","laminec","vertebro"] #Height check
+    },
+
+    'anterior': {
+        'special cases' : ["hernia","esophagectomy","clavicle","scapula","aort"],
+        'head' : ["brain","mening","neur","cerebr","dental","cran","trigemin","mastoid","orbit","tons","amigd","adeno","mandible","catarac","nose","sinus","nasal","sphenoi","scleral","corneal","teeth","tooth","zygoma","VENTRICULOPERITONEAL","rhino","septoplasty","face","facial","trabeculec"],
+        'neck' : ["trach","cervical","neck","esophagostomy","carotid","thyroi","laryng","pharing"],
+        'thorax' : ["lung","bronch","thora","cardiac","mediastin","heart","pace","pericar","cardio","atrial","STEMI","ablation","myotomy","thym","CV","ravitch","pectus","maze","stern","mitral", "tricusp","sternal","ICD","chest","CABG","aort","WATCHMAN","PCI","breast","mastec","masto"],
+        'RUQ' : ["hepatec","liver","chole","bili","bile duct", "hepatic cyst"], #No side check
+        'LUQ' : ["splen","spleen","gast","fundo","hiatal","esophag","EGD"], #No side check
+        'RLQ' : ["append","ileo"], #No side check
+        'LLQ' : ["sigm","hartman"], #No side check
+        'upperA' : ["Whipple","panc","diaphragm","fren"],
+        'lowerA' : ["salping","ooph","ovary","cyst","hyst","prost","proct","recta","uterus","myomec","pelvic","ilium","ischi","pubic"],
+        'abdomen': ["laparo","abdom","stoma","retroperitone","adhesi","oment","peritone","small intestine","small bowel","enter","jejun","bowel","colectomy","colostomy"],
+        'genitalia': ["penis","penec","orchi","testic","epidi","vulv","circumcision","scrot","vagina","hydrocele","perineo"],
+        #Ortho & Vascular
+        'upperLimb' :["shoulder","humer","bicep","tricep","brachial","elbow","radial","ulna","wrist","carpal","hand","digit","arm"],
+        'lowerLimb' :["hip","acetabulum","femur","femoral","trochan","thigh","quadriceps","knee","patella","tibia","fibula","ankle","pedis","foot","feet","achiles","calcaneus","talus","toe","thumb","bunion","leg"],
+               
+    }
+      
+}
+
+df = pd.read_excel('/Users/JoaoAmaral/Coding/bodyRegion-main/Procedures.xlsx')
+for index, row in df.iterrows():
+    #Check for special cases
+    #Check for anteior/posterior view
+    #Check laterality if unspecified mark both sides
+    #Funtion for body region
+    #bodyRegion(row['specialty_name'])
+
+#func body segment
+#func laterality    

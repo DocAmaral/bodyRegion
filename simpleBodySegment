@@ -6,10 +6,10 @@ humanBody = {
     'orificial':["fistulotomy","fistulectomy","anal","hemorr","fissurec","anal","hemorrh","anorectal"],
     'spinal': ["spine","laminec","vertebro"], #Height check
     #Anterior
-    'special cases' : ["hernia","esophagectomy","clavicle","scapula","aort"],
+    'special cases' : ["hernia","esophagectomy","clavicle","scapula",
     'head' : ["brain","mening","neur","cerebr","dental","cran","trigemin","mastoid","orbit","tons","amigd","adeno","mandible","catarac","nose","sinus","nasal","sphenoi","scleral","corneal","teeth","tooth","zygoma","VENTRICULOPERITONEAL","rhino","septoplasty","face","facial","trabeculec"],
     'neck' : ["trach","cervical","neck","esophagostomy","carotid","thyroi","laryng","pharing"],
-    'thorax' : ["lung","bronch","thora","cardiac","mediastin","heart","pace","pericar","cardio","atrial","STEMI","ablation","myotomy","thym","CV","ravitch","pectus","maze","stern","mitral", "tricusp","sternal","ICD","chest","CABG","aort","WATCHMAN","PCI","breast","mastec","masto"],
+    'thorax' : ["lung","bronch","thora","cardiac","mediastin","heart","pace","pericar","cardio","atrial","STEMI","ablation","myotomy","thym","CV","ravitch","pectus","maze","stern","mitral", "tricusp","sternal","ICD","chest","CABG","aort","WATCHMAN","PCI","breast","mastec","masto", "ascending aorta"],
     'RUQ' : ["hepatec","liver","chole","bili","bile duct", "hepatic cyst"], #No side check
     'LUQ' : ["splen","spleen","gast","fundo","hiatal","esophag","EGD"], #No side check
     'RLQ' : ["append","ileo"], #No side check
@@ -35,11 +35,19 @@ def bodyRegion(check):
     for region,organs in humanBody.items():
         for organ in organs:
             if organ.lower() in str(check.lower()):
-                if region == "lumbar" or region == "orificial" or region == "spinal":
-                    print("Surgery is ",check,"|View is posterior | Site is",region,"|Side is",row['laterality'])
+                if region == "lumbar" or region == "orificial":
+                    print("Surgery is ",check,"|View is posterior | Site is",region,"|Side is",row['laterality'],"|Match is ",organ)
                     return
+                elif region =="spinal":
+                    spinalLevel = []
+                    for height in levels:
+                        if height in str(check.lower()):
+                            spinalLevel.append(height)
+                        
+                    print("Surgery is ",check,"|View is posterior | Site is",region,"|Side is",row['laterality'],"|Height is ",spinalLevel,"|Match is ",organ)
+                    return                                         
                 else:
-                    print("Surgery is ",check,"| View is anterior | Site is",region,"| Side is",row['laterality'])
+                    print("Surgery is ",check,"| View is anterior | Site is",region,"| Side is",row['laterality'],"|Match is ",organ)
                     return                
 
     

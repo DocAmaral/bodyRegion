@@ -6,7 +6,7 @@ humanBody = {
     'orificial':["fistulotomy","fistulectomy","anal","hemorr","fissurec","anal","hemorrh","anorectal"],
     'spinal': ["spine","laminec","vertebro"], #Height check
     #Anterior
-    'special cases' : ["hernia","esophagectomy","clavicle","scapula",
+    'special cases' : ["hernia","esophagectomy","clavicle","scapula"],
     'head' : ["brain","mening","neur","cerebr","dental","cran","trigemin","mastoid","orbit","tons","amigd","adeno","mandible","catarac","nose","sinus","nasal","sphenoi","scleral","corneal","teeth","tooth","zygoma","VENTRICULOPERITONEAL","rhino","septoplasty","face","facial","trabeculec"],
     'neck' : ["trach","cervical","neck","esophagostomy","carotid","thyroi","laryng","pharing"],
     'thorax' : ["lung","bronch","thora","cardiac","mediastin","heart","pace","pericar","cardio","atrial","STEMI","ablation","myotomy","thym","CV","ravitch","pectus","maze","stern","mitral", "tricusp","sternal","ICD","chest","CABG","aort","WATCHMAN","PCI","breast","mastec","masto", "ascending aorta"],
@@ -24,13 +24,15 @@ humanBody = {
       
 }
 
+levels = ['cervic','thora','lumbar','sacr']
+
 images = {
     "bilat":['head','neck','thorax','upperA','lowerA','abdomen','genitalia','upperLimb','lowerLimb'],
     "left":['l_head','l_neck','l_thorax','l_upperA','l_lowerA','l_abdomen','l_genitalia','l_upperLimb','l_lowerLimb'],
     "right": ['r_head','r_neck','r_thorax','r_upperA','r_lowerA','r_abdomen','r_genitalia','r_upperLimb','r_lowerLimb'],
 }
 
-df = pd.read_excel('/Users/JoaoAmaral/Coding/bodyRegion-main/procedureLaterality.xlsx')
+df = pd.read_excel('procedureLaterality.xlsx')
 def bodyRegion(check):
     for region,organs in humanBody.items():
         for organ in organs:
